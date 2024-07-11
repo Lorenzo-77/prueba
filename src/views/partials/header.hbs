@@ -1,0 +1,48 @@
+<div class="header">
+  <a href="/" ><img src="img/logo.png" alt="logo" srcset="img/logo.png" class="logo"></a>
+  {{#if (administrador user.role)}}
+    <div class="header-right">
+    <a class="active" href="/create">Crear Usuario</a>
+    <a href="/verProfesores">Ver Profesores</a>
+    <a href="/verAlumnos">Ver Alumnos</a>
+    <a href="/#">Asignar Usuarios</a>
+    <a href="/horarios">Agregar Horarios</a>
+   <!-- <a href="/#">Asignar Creditos</a> -->
+    <a class="nav-link active" href="/logout">Cerrar Sesion</a>
+  </div>
+  {{else if (profesor user.role)}}
+ <!-- <div class="header-right">
+    <a class="active" href="/">Inicio</a>
+    <a href="#">Ejercicios</a>
+    <a href="#">Rutinas</a>
+    <a href="#">Nutricion</a>
+  </div> -->
+    <div class="header-right">
+    <a class="active" href="/">agregar ejercicios</a>
+    <a href="#">Mis Alumnos</a>
+    <a href="#">Armar rutinas</a>
+    <a class="nav-link active" href="/logout">Cerrar Sesion</a>
+  </div>
+  {{else if (alumno user.role)}}
+  <div class="header-right">
+    <a class="active" href="/lista">Reservas</a>
+    <a href="#">Ejercicios</a>
+    <a href="#">Rutinas</a>
+    <a href="#">Nutricion</a>
+    <a class="nav-link active" href="/logout">Cerrar Sesion</a>
+  </div> 
+  {{else}}
+  <div class="header-right">
+    <a class="active" href="/">Inicio</a>
+    <a href="#">PROGRAMAS</a>
+    <a href="#">ENTRAR EN ACCIÓN</a>
+    <a href="#">CONTACTO</a>
+  </div>
+  <div class="ingreso"> 
+    <a class="active" href="/login">Iniciar Sesion</a> 
+    <button>Iniciar Sesion</button>
+    <button>Registrarse</button>
+  </div>
+  {{/if}}
+</div>
+

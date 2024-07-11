@@ -1,0 +1,108 @@
+.logo{
+  height: 100px;
+  width: 100px;
+}
+
+*{
+  font-family: "Fira Sans", sans-serif;
+}
+
+/* Style the header with a grey background and some padding */
+.header {
+  overflow: hidden;
+  display: flex;
+  padding: 20px 10px;
+  justify-content: space-between;
+  align-items: center;
+  height: 177px;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: #CBCBCB;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+  align-items: center;
+}
+
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  color: #B8FF00;
+  text-decoration: underline;
+}
+
+/* Style the active/current link*/
+.header a.active {
+  color: #B8FF00;
+  text-decoration: underline;
+}
+
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
+
+
+body{
+  background: url(../img/portada.png);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+button{
+  border-radius: 20px;
+  background-color: #B8FF00;
+  padding-bottom: 7px;
+  padding-left: 20px;
+  padding-top: 7px;
+  padding-right: 20px;
+  margin-right: 20px;
+}
+
+/* Hero */
+.Hero{
+  left: 80%;
+  align-items: center;
+  padding: 20px 10px;
+  height: 603px;
+}
+
+.lema{
+  padding-top:192px;
+  text-align: center;
+  width: 50%;
+  float: right;
+}
+
+.lema h1{
+  font-family: "Odor Mean Chey", serif;
+  color: white;
+  font-size: 64px;
+  line-height: 59px;
+}
+
+.lema h2{
+  font-family: "Odor Mean Chey", sans-serif;
+  color: white;
+  font-size: 32px;
+  line-height: 30px;
+}

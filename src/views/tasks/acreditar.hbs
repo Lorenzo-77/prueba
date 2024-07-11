@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-3 mx-auto">
+        <div class="card text-center">
+            <div class="card-header">
+                <h2>Acreditar</h2>
+            </div>
+            <div class="card-body">
+                 {{#each partner}}
+    <form action="/acreditacion/{{id}}" method="POST"> 
+    
+    <div class="row mb-4">
+        <div class="col">
+            <div class="form-outline">
+                <input type="text" id="form3Example1" class="form-control" name="name" placeholder="Nombre" value="{{name}}" disabled/>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="text" id="form3Example2" class="form-control" name="lastname" placeholder="Apellido" value="{{lastname}}" disabled/>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-outline mb-4">
+        <input type="number" id="form3Example3" class="form-control" name="dni" placeholder="Documento" value="{{dni}}" disabled/>
+    </div>
+    <div class="form-outline mb-4">
+        <input type="email" id="form3Example3" class="form-control" name="email" placeholder="Email" value="{{email}}" disabled/>
+    </div>
+                        <div class="col">
+                            <div class="form-outline">
+                                <select name="credit" class="form-control">
+                                    <option value="8">8</option>
+                                    <option value="12">12</option>
+                                    <option value="16">16</option>
+                                    <option value="20">20</option>
+                                </select>
+                            </div>
+                        </div>
+    <!-- Botón de enviar -->
+    <button type="submit" class="btn btn-primary btn-block mb-4">Asignar</button>
+</form>
+{{/each}}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <div class="card mt-4 text-center">
+            <div class="card-header">
+                <h2>Cuenta de Ingreso</h2>
+            </div>
+          <!--     <img src="" class="rounded-circle mx-auto d-block m-4 logo" alt="Logo"> -->
+            <div class="card-body">
+                <form action="/auth" method="POST">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" name="email"
+                        placeholder="E-Mail" autofocus>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" name="password" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"> 
+                            Login
+                        </button>
+                    </div>
+                     <a class="nav-link" href="/register"> <i class="bi bi-person-add"></i> ¿No tienes cuenta? Registrate</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

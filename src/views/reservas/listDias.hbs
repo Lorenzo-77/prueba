@@ -1,0 +1,84 @@
+<div class="col-md-6 mx-auto">
+  <ul class="list-group list-group-light">
+    <form id="fechaForm" action="/buscar" method="POST">
+      <table class="table">
+        <tr class="table-info">
+          <th scope="row">{{fecha_actual}}</th>
+          <td>
+            <input type="date" id="fechaInput" name="fecha" value="{{fecha_actual_formatted}}" min="{{fecha_actual_formatted}}">
+          </td>
+          <td><button type="submit" class="btn btn-primary">Buscar</button></td>
+        </tr>
+      </table>
+      <input type="hidden" id="diaSemanaInput" name="diaSemana">
+    </form>
+    <h6 class="list-group-item bg-body-tertiary p-2 border-top border-bottom">{{fecha_actual}}</h6>
+    {{#each lista}}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <div class="ms-3">
+          <p class="fw-bold mb-1">{{hora}}</p>
+          <p class="text-muted mb-0">{{nombre_dia}}</p>
+        </div>
+        <div class="ms-3">
+          <p class="text-muted mb-0">Profesor: {{nombre_profesor}}</p>
+        </div>
+      </div>
+      {{#if reservado}}
+        <button class="btn btn-secondary btn-rounded btn-sm" disabled>Reservado</button>
+        <form action="/cancelar/{{clase_id}}" method="POST" style="display:inline;">
+           <button type="submit" class="btn btn-warning btn-rounded btn-sm">Cancelar</button>
+        </form>
+      {{else if cupos_disponibles}}
+        <a class="btn btn-primary btn-rounded btn-sm" href="/reservar/{{clase_id}}" role="button">Reservar</a> {{cupos_disponibles}}
+      {{else}}
+        <button class="btn btn-secondary btn-rounded btn-sm" disabled>Clase llena</button>
+      {{/if}}
+    </li>
+    {{/each}}
+  </ul>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const fechaInput = document.getElementById('fechaInput');
+    const diaSemanaInput = document.getElementById('diaSemanaInput');
+
+    // Configurar el valor inicial de fecha y el mínimo permitido
+    const fechaActual = new Date().toISOString().split('T')[0];
+    if (!fechaInput.value) {
+      fechaInput.value = fechaActual;
+    }
+    fechaInput.min = fechaActual;
+
+    // Actualizar el campo oculto con el día de la semana al cambiar la fecha
+    fechaInput.addEventListener('change', function() {
+      const fechaSeleccionada = new Date(fechaInput.value + 'T00:00:00');
+      const diaSemana = fechaSeleccionada.getDay();
+      const diaMap = {
+        0: 7, // Domingo (sin clases según tu configuración)
+        1: 1, // Lunes
+        2: 2, // Martes
+        3: 3, // Miércoles
+        4: 4, // Jueves
+        5: 5, // Viernes
+        6: 6  // Sábado (sin clases según tu configuración)
+      };
+      diaSemanaInput.value = diaMap[diaSemana];
+    });
+
+    // Inicializar el valor del campo oculto al cargar la página
+    const initialFechaSeleccionada = new Date(fechaInput.value + 'T00:00:00');
+    const initialDiaSemana = initialFechaSeleccionada.getDay();
+    const initialDiaMap = {
+      0: 7, // Domingo (sin clases según tu configuración)
+      1: 1, // Lunes
+      2: 2, // Martes
+      3: 3, // Miércoles
+      4: 4, // Jueves
+      5: 5, // Viernes
+      6: 6  // Sábado (sin clases según tu configuración)
+    };
+    diaSemanaInput.value = initialDiaMap[initialDiaSemana];
+  });
+</script>

@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <h1 style="color: #B8FF00;">profesores</h1>
+        <table  class="table table-dark table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                {{#each professors}}
+                <tr>
+                    <th scope="row">{{id}}</th>
+                    <td>{{role}}</td>
+                    <td>{{name}}</td>
+                    <td>{{lastname}}</td>
+                    <td>
+                        
+                        <form action="/eliminar/{{id}}" method="POST">
+                            <button type="submit" class="btn btn-danger">Delate</button>
+                             <td><a href="/editar/{{id}}" class="btn btn-primary">Update</a></td>
+                        </form>
+                        
+                    </td>
+                   
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

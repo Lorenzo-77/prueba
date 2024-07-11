@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-md-3 mx-auto">
+        <div class="card text-center">
+            <div class="card-header">
+                <h2>EDITAR USUARIO</h2>
+            </div>
+            <div class="card-body">
+                 {{#each x}}
+    <form action="/editar/{{id}}" method="POST"> 
+    
+    <div class="row mb-4">
+        <div class="col">
+            <div class="form-outline">
+                <input type="text" id="form3Example1" class="form-control" name="name" placeholder="Nombre" value="{{name}}" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="text" id="form3Example2" class="form-control" name="lastname" placeholder="Apellido" value="{{lastname}}" />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-outline mb-4">
+        <input type="number" id="form3Example3" class="form-control" name="dni" placeholder="Documento" value="{{dni}}" />
+    </div>
+    <div class="form-outline mb-4">
+        <input type="email" id="form3Example3" class="form-control" name="email" placeholder="Email" value="{{email}}" />
+    </div>
+
+    <div class="row mb-4">
+        <div class="col">
+            <div class="form-outline">
+                <input type="text" id="form3Example1" class="form-control" placeholder="Rol" disabled/>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <select id="role" name="role" class="form-control">
+                    <option value="{{role}}" >{{role}}</option>
+
+                </select>
+            </div>
+        </div>
+    </div>
+    <!-- Botón de enviar -->
+    <button type="submit" class="btn btn-primary btn-block mb-4">Actualizar</button>
+</form>
+{{/each}}
+            </div>
+        </div>
+    </div>
+</div>
